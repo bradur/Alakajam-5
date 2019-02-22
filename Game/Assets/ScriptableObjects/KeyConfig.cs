@@ -6,10 +6,6 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName="KeyConfig", menuName="New KeyConfig")]
 public class KeyConfig : ScriptableObject {
 
-    [SerializeField]
-    private string objectName = "New KeyConfig";
-    public string Name { get { return objectName; } }
-
     public List<GameKey> GameKeys;
 
 }

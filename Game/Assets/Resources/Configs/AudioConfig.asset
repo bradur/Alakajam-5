@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac89aa380a3b4b459c71e905f879d5b, type: 3}
+  m_Name: AudioConfig
+  m_EditorClassIdentifier: 
+  objectName: AudioConfig
+  sfxPlayerPrefab: {fileID: 7370746683580622118, guid: ecc97fd6331e18f4eaa90052e8a04b44,
+    type: 3}
+  musicPlayerPrefab: {fileID: 5962978114159094175, guid: 9b96e835176d7fd4a81e72b730a0e69e,
+    type: 3}
+  sounds: []

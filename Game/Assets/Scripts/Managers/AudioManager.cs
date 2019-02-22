@@ -3,43 +3,44 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class SoundManager : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
 
-    public static SoundManager main;
+    public static AudioManager main;
 
-    [SerializeField]
-    private SoundConfig config;
+    private AudioConfig audioConfig;
 
     private bool sfxMuted = false;
 
-    [SerializeField]
     private bool musicMuted = false;
     public bool MusicMuted { get { return musicMuted; } }
 
-    [SerializeField]
     private AudioSource sfxPlayer;
 
-    [SerializeField]
-    private AudioSource musicSource;
+    private AudioSource musicPlayer;
 
     void Awake()
     {
         main = this;
+
     }
 
-    private void Start()
-    {
-        if (musicSource != null)
+    private void Start() {
+        audioConfig = ConfigManager.main.GetConfig("AudioConfig") as AudioConfig;
+        sfxPlayer = Instantiate(audioConfig.SfxPlayerPrefab);
+        sfxPlayer.transform.SetParent(transform);
+        musicPlayer = Instantiate(audioConfig.MusicPlayerPrefab);
+        musicPlayer.transform.SetParent(transform);
+        musicPlayer.clip = audioConfig.Music;
+        if (musicPlayer.clip != null)
         {
             if (musicMuted)
             {
-                musicSource.Pause();
-                //UIManager.main.ToggleMusic();
+                musicPlayer.Pause();
             }
             else
             {
-                musicSource.Play();
+                musicPlayer.Play();
             }
         }
     }
@@ -48,7 +49,7 @@ public class SoundManager : MonoBehaviour
     {
         if (!sfxMuted)
         {
-            foreach (GameSound gameSound in config.Sounds)
+            foreach (GameSound gameSound in audioConfig.Sounds)
             {
                 if (gameSound.soundType == soundType)
                 {
@@ -66,7 +67,6 @@ public class SoundManager : MonoBehaviour
     public void ToggleSfx()
     {
         sfxMuted = !sfxMuted;
-        //UIManager.main.ToggleSfx();
     }
 
     public bool ToggleMusic()
@@ -74,13 +74,12 @@ public class SoundManager : MonoBehaviour
         musicMuted = !musicMuted;
         if (musicMuted)
         {
-            musicSource.Pause();
+            musicPlayer.Pause();
         }
         else
         {
-            musicSource.Play();
+            musicPlayer.Play();
         }
-        //UIManager.main.ToggleMusic();
         return musicMuted;
     }
 }

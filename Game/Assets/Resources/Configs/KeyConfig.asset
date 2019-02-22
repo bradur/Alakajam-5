@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb787957f4c8a94cbe6b07cb3f7883a, type: 3}
   m_Name: KeyConfig
   m_EditorClassIdentifier: 
-  objectName: New KeyConfig
+  objectName: KeyConfig
   GameKeys: []
