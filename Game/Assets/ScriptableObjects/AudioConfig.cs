@@ -20,11 +20,16 @@ public class AudioConfig : ScriptableObject
     private AudioSource sfxPlayerPrefab;
     public AudioSource SfxPlayerPrefab { get { return sfxPlayerPrefab; } }
 
+    public bool SfxMuted = false;
+
     [SerializeField]
     private AudioSource musicPlayerPrefab;
     public AudioSource MusicPlayerPrefab { get { return musicPlayerPrefab; } }
 
+    public bool MusicMuted = false;
 
+
+    [SerializeField]
     private AudioClip music;
     public AudioClip Music { get { return music; } }
 

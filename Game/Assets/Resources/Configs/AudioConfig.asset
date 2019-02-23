@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxPlayerPrefab: {fileID: 7370746683580622118, guid: ecc97fd6331e18f4eaa90052e8a04b44,
     type: 3}
+  SfxMuted: 0
   musicPlayerPrefab: {fileID: 5962978114159094175, guid: 9b96e835176d7fd4a81e72b730a0e69e,
     type: 3}
+  MusicMuted: 0
+  music: {fileID: 8300000, guid: 69294ae353ed74d448fe411c20db4ee4, type: 3}
   sounds:
   - soundType: 1
     sound: {fileID: 8300000, guid: c09e2ec76b6caaf43802dfb29751d876, type: 3}
