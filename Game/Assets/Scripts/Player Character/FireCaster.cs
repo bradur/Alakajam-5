@@ -41,6 +41,8 @@ public class FireCaster : MonoBehaviour
 
     void ExtinguishOrLightFire()
     {
+        previouslyHitTorch = null;
+        CheckFirePossibilities();
         if (targetFireSource != null)
         {
             if (targetFireSource.IsLit)
@@ -61,11 +63,17 @@ public class FireCaster : MonoBehaviour
     void CheckFirePossibilities()
     {
         RaycastHit hit;
+        RaycastHit burnHit;
         Vector3 endPoint = transform.TransformDirection(Vector3.forward);
         bool rayHitSomething = CastTorchCheckRay(endPoint, out hit);
-        if (rayHitSomething)
+        bool rayHitBurnTarget = CastBurnCheckRay(endPoint, out burnHit);
+        if (rayHitSomething && !rayHitBurnTarget)
         {
             //Vector3 point = hit.point;
+            targetFireSource = GetInteractableFireSource(hit);
+        }
+        else if(rayHitSomething && rayHitBurnTarget && burnHit.distance > hit.distance)
+        {
             targetFireSource = GetInteractableFireSource(hit);
         }
         else
@@ -89,6 +97,17 @@ public class FireCaster : MonoBehaviour
             out hit,
             fireConfig.MaxDistance,
             gameConfig.TorchLayer
+        );
+    }
+
+    bool CastBurnCheckRay(Vector3 endPoint, out RaycastHit hit)
+    {
+        return Physics.Raycast(
+            transform.position,
+            endPoint,
+            out hit,
+            fireConfig.MaxDistance,
+            gameConfig.BurnableLayer
         );
     }
 

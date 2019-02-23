@@ -41,6 +41,8 @@ public class BurnCaster : MonoBehaviour
 
     void BurnTarget()
     {
+        previouslyHitBurnable = null;
+        CheckBurnablePossibilities();
         if (targetBurnable != null && playerHandConfig.hasFire)
         {
             if (!targetBurnable.IsLit)
@@ -54,11 +56,17 @@ public class BurnCaster : MonoBehaviour
     void CheckBurnablePossibilities()
     {
         RaycastHit hit;
+        RaycastHit torchHit;
         Vector3 endPoint = transform.TransformDirection(Vector3.forward);
         bool rayHitSomething = CastBurnableCheckRay(endPoint, out hit);
-        if (rayHitSomething)
+        bool rayHitTorch = CastTorchCheckRay(endPoint, out torchHit);
+        if (rayHitSomething && !rayHitTorch)
         {
             //Vector3 point = hit.point;
+            targetBurnable = GetBurnableObject(hit);
+        }
+        else if (rayHitSomething && rayHitTorch && torchHit.distance > hit.distance)
+        {
             targetBurnable = GetBurnableObject(hit);
         }
         else
@@ -67,7 +75,7 @@ public class BurnCaster : MonoBehaviour
             {
                 previouslyHitBurnable.SetMaterial(fireConfig.BurnableDefaultMaterial);
             }
-            previouslyHitBurnable = null;
+            targetBurnable = null;
             /*Vector3 point = transform.position + transform.forward * fireConfig.MaxDistance;
             point.y = 0f;*/
         }
@@ -82,6 +90,17 @@ public class BurnCaster : MonoBehaviour
             out hit,
             fireConfig.MaxDistance,
             gameConfig.BurnableLayer
+        );
+    }
+
+    bool CastTorchCheckRay(Vector3 endPoint, out RaycastHit hit)
+    {
+        return Physics.Raycast(
+            transform.position,
+            endPoint,
+            out hit,
+            fireConfig.MaxDistance,
+            gameConfig.TorchLayer
         );
     }
 
