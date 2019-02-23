@@ -97,18 +97,24 @@ public class TeleportCaster : MonoBehaviour
     }
 
     void DrawTeleportArea(Vector3 endPoint) {
-        Vector3 teleportAreaPosition = endPoint;
+        teleportTarget = GetTeleportableFireSource(endPoint);
+        Vector3 teleportAreaPosition;
+        if (teleportTarget != null) {
+            teleportAreaPosition = teleportTarget.TeleportPosition;
+        } else {
+            teleportAreaPosition = endPoint;
+        }
         teleportAreaPosition.y = playerConfig.TeleportAreaPrefab.transform.position.y;
         teleportArea.transform.position = teleportAreaPosition;
-        teleportTarget = GetTeleportableFireSource(endPoint);
         teleportArea.enabled = teleportTarget != null;
     }
 
     void Teleport() {
         if (teleportTarget != null) {
             Vector3 position = transform.position;
-            position.x = teleportTarget.transform.position.x;
-            position.z = teleportTarget.transform.position.z;
+            Vector3 targetPosition = teleportTarget.TeleportPosition;
+            position.x = targetPosition.x;
+            position.z = targetPosition.z;
             previousTeleportTarget = teleportTarget;
             transform.position = position;
             playerHandConfig.triggerJump = true;

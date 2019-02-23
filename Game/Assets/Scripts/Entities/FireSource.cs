@@ -41,6 +41,10 @@ public class FireSource : MonoBehaviour
     private GameObject torch;
 
     private FireConfig fireConfig;
+
+    private TeleportPosition teleportPosition;
+    public Vector3 TeleportPosition { get { return teleportPosition.transform.position; } }
+
     private GameConfig gameConfig;
 
     [SerializeField]
@@ -54,6 +58,8 @@ public class FireSource : MonoBehaviour
 
     void Start()
     {
+        teleportPosition = GetComponentInChildren<TeleportPosition>();
+        Debug.Log(teleportPosition);
         fireConfig = ConfigManager.main.GetConfig("FireConfig") as FireConfig;
         gameConfig = ConfigManager.main.GetConfig("GameConfig") as GameConfig;
         debugRenderer = GetComponentInChildren<SpriteRenderer>();
