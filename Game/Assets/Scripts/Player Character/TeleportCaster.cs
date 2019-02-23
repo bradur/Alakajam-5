@@ -127,8 +127,8 @@ public class TeleportCaster : MonoBehaviour
             if (source == previousTeleportTarget) {
                 continue;
             }
-            Vector3 heading = source.transform.position - transform.position;
-            float distanceToPlayer = Vector3.Distance(transform.position, source.transform.position);
+            Vector3 heading = source.TeleportPosition - transform.position;
+            float distanceToPlayer = Vector3.Distance(transform.position, source.TeleportPosition);
             float distance = heading.magnitude;
             Vector3 direction = heading / distance; // This is now the normalized direction.
             RaycastHit hit;
