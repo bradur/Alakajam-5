@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hands : MonoBehaviour
 {
-    public GameObject fireEffect;
+    public List<GameObject> effects;
 
     private PlayerHandConfig config;
 
@@ -19,9 +19,12 @@ public class Hands : MonoBehaviour
         animator = GetComponent<Animator>();
         config.hasFire = false;
 
-        if (fireEffect != null)
+        if (effects != null)
         {
-            fireEffect.SetActive(false);
+            foreach(GameObject effect in effects)
+            {
+                effect.SetActive(false);
+            }
         }
     }
 
@@ -36,9 +39,9 @@ public class Hands : MonoBehaviour
             {
                 animator.SetBool("grabbed", true);
                 grabbed = true;
-                if (fireEffect != null)
+                foreach (GameObject effect in effects)
                 {
-                    fireEffect.SetActive(true);
+                    effect.SetActive(true);
                 }
             }
         }
@@ -49,9 +52,9 @@ public class Hands : MonoBehaviour
             config.triggerThrow = false;
             animator.SetBool("grabbed", false);
             grabbed = false;
-            if (fireEffect != null)
+            foreach (GameObject effect in effects)
             {
-                fireEffect.SetActive(false);
+                effect.SetActive(false);
             }
         }
 
