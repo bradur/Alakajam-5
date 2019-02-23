@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b70680d38c41314d890337f59d82ab8, type: 3}
-  m_Name: GameConfig
+  m_Script: {fileID: 11500000, guid: 7b8415aea75f8e84494071608a182ba2, type: 3}
+  m_Name: CameraConfig
   m_EditorClassIdentifier: 
-  VisualDebug: 0
-  LogLevel: 3
+  clampInDegrees: {x: 360, y: 70}
+  lockCursor: 0
+  sensitivity: {x: 2, y: 2}
+  smoothing: {x: 3, y: 3}
+  targetDirection: {x: 0, y: 0}
+  targetCharacterDirection: {x: 0, y: 0}
