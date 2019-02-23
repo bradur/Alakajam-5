@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2370667222974232371}
   - component: {fileID: 3089213018458603298}
+  - component: {fileID: 5200909086223706748}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -69,6 +70,21 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &5200909086223706748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859129350328497612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6131d6972b646394e9f57974840339b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minIntensity: 0.75
+  maxIntensity: 1.25
+  speed: 5
 --- !u!1 &4955627555264934524
 GameObject:
   m_ObjectHideFlags: 0
