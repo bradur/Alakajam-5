@@ -21,5 +21,8 @@ MonoBehaviour:
   torchLayer:
     serializedVersion: 2
     m_Bits: 2048
+  burnableLayer:
+    serializedVersion: 2
+    m_Bits: 4096
   VisualDebug: 1
   LogLevel: 3

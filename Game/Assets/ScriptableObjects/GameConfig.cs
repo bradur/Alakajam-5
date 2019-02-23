@@ -24,6 +24,10 @@ public class GameConfig : ScriptableObject
     private LayerMask torchLayer;
     public LayerMask TorchLayer { get { return torchLayer; } }
 
+    [SerializeField]
+    private LayerMask burnableLayer;
+    public LayerMask BurnableLayer { get { return burnableLayer; } }
+
 
     [Header("Debugging")]
 
