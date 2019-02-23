@@ -20,6 +20,10 @@ public class GameConfig : ScriptableObject
     private LayerMask wallLayer;
     public LayerMask WallLayer { get { return wallLayer; } }
 
+    [SerializeField]
+    private LayerMask torchLayer;
+    public LayerMask TorchLayer { get { return torchLayer; } }
+
 
     [Header("Debugging")]
 

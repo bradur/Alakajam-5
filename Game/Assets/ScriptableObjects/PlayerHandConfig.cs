@@ -10,4 +10,6 @@ public class PlayerHandConfig : ScriptableObject {
     public bool triggerThrow;
     public bool triggerJump;
 
+    public bool hasFire = false;
+
 }

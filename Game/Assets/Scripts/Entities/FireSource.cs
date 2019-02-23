@@ -11,6 +11,7 @@ using UnityEditor;
 public class FireSourceEditor : Editor
 {
     private FireSource fireSource;
+
     private SpriteRenderer debugRenderer;
 
     public void OnSceneGUI()
@@ -18,6 +19,9 @@ public class FireSourceEditor : Editor
         fireSource = this.target as FireSource;
         debugRenderer = fireSource.GetComponentInChildren<SpriteRenderer>();
         Vector3 scale = new Vector3(fireSource.Range * 2, fireSource.Range * 2, 1f);
+        Vector3 pos = debugRenderer.transform.position;
+        pos.y = 0.1f;
+        debugRenderer.transform.position = pos;
         debugRenderer.transform.localScale = scale;
     }
 
@@ -25,6 +29,16 @@ public class FireSourceEditor : Editor
 
 public class FireSource : MonoBehaviour
 {
+
+    [SerializeField]
+    private bool isLit = true;
+    public bool IsLit { get { return isLit; } }
+
+    [SerializeField]
+    private GameObject fire;
+
+    [SerializeField]
+    private GameObject torch;
 
     private FireConfig fireConfig;
     private GameConfig gameConfig;
@@ -38,29 +52,34 @@ public class FireSource : MonoBehaviour
     public float Range { get { return range; } }
     private SpriteRenderer debugRenderer;
 
-    private bool isLit;
-    public bool IsLit { get { return isLit; } }
-
     void Start()
     {
         fireConfig = ConfigManager.main.GetConfig("FireConfig") as FireConfig;
         gameConfig = ConfigManager.main.GetConfig("GameConfig") as GameConfig;
         debugRenderer = GetComponentInChildren<SpriteRenderer>();
+        Vector3 pos = debugRenderer.transform.position;
+        pos.y = 0.1f;
+        debugRenderer.transform.position = pos;
         FireSourceManager.main.AddFireSource(this);
+        if (!isLit) {
+            Extinguish();
+        }
     }
 
     void Update()
     {
-        debugRenderer.enabled = gameConfig.VisualDebug;
+        debugRenderer.enabled = gameConfig.VisualDebug && isLit;
     }
 
     public void Extinguish()
     {
-        isLit = true;
+        isLit = false;
+        fire.SetActive(false);
     }
 
     public void Light()
     {
-        isLit = false;
+        isLit = true;
+        fire.SetActive(true);
     }
 }
