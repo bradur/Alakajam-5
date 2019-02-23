@@ -12,18 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f9dfa7ecb170a41a35b66ab61d8a0b, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
-  drawCurve: 1
+  drawCurve: 0
   curvePrefab: {fileID: 55240216579432347, guid: ca8a88a0d3413644893ee4efdd0e3297,
     type: 3}
   teleportAreaPrefab: {fileID: 4771359027863978974, guid: 771943da12a1390478a902db64119896,
     type: 3}
-  offsetAnimationSpeed: 2
+  offsetAnimationSpeed: 5
   curveHeight: 2
   curveColor: {r: 0, g: 1, b: 1, a: 1}
   maxDistance: 10
-  collideMask:
-    serializedVersion: 2
-    m_Bits: 16
+  teleportAreaColorAllowed: {r: 0, g: 1, b: 0, a: 1}
+  teleportAreaColorUnallowed: {r: 1, g: 0, b: 0, a: 1}
   minDistance: 2
   debugRayColorOnHit: {r: 0, g: 1, b: 0, a: 1}
   debugRayColor: {r: 1, g: 1, b: 1, a: 1}

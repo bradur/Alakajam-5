@@ -12,7 +12,8 @@ public class KeyConfig : ScriptableObject {
 
 public enum PlayerAction
 {
-    None
+    None,
+    Teleport
 }
 
 [System.Serializable]
