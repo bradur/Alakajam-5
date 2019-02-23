@@ -38,6 +38,9 @@ public class FireSource : MonoBehaviour
     public float Range { get { return range; } }
     private SpriteRenderer debugRenderer;
 
+    private bool isLit;
+    public bool IsLit { get { return isLit; } }
+
     void Start()
     {
         fireConfig = ConfigManager.main.GetConfig("FireConfig") as FireConfig;
@@ -46,7 +49,18 @@ public class FireSource : MonoBehaviour
         FireSourceManager.main.AddFireSource(this);
     }
 
-    void Update() {
+    void Update()
+    {
         debugRenderer.enabled = gameConfig.VisualDebug;
+    }
+
+    public void Extinguish()
+    {
+        isLit = true;
+    }
+
+    public void Light()
+    {
+        isLit = false;
     }
 }

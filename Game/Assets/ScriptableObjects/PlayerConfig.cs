@@ -49,10 +49,6 @@ public class PlayerConfig : ScriptableObject
     public Color TeleportAreaColorAllowed { get { return teleportAreaColorAllowed; } }
 
     [SerializeField]
-    private Color teleportAreaColorUnallowed = Color.red;
-    public Color TeleportAreaColorUnallowed { get { return teleportAreaColorUnallowed; } }
-
-    [SerializeField]
     private float minDistance = 2f;
     public float MinDistance { get { return minDistance; } }
 

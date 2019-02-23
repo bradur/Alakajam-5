@@ -11,23 +11,25 @@ public class TeleportCaster : MonoBehaviour
     private PlayerConfig playerConfig;
     private GameConfig gameConfig;
     private FireConfig fireConfig;
-
+    private PlayerHandConfig playerHandConfig;
     private FireSourceManager fireSource;
 
     private BezierCurve curve;
     private SpriteRenderer teleportArea;
 
     private FireSource teleportTarget;
+    private FireSource previousTeleportTarget;
 
     void Start()
     {
         playerConfig = ConfigManager.main.GetConfig("PlayerConfig") as PlayerConfig;
         gameConfig = ConfigManager.main.GetConfig("GameConfig") as GameConfig;
         fireConfig = ConfigManager.main.GetConfig("FireConfig") as FireConfig;
+        playerHandConfig = ConfigManager.main.GetConfig("PlayerHandConfig") as PlayerHandConfig;
         InitializeCurve();
         teleportArea = Instantiate(playerConfig.TeleportAreaPrefab);
         teleportArea.transform.SetParent(transform.parent);
-        teleportArea.color = playerConfig.CurveColor;
+        teleportArea.color = playerConfig.TeleportAreaColorAllowed;
     }
 
     void InitializeCurve() {
@@ -84,7 +86,7 @@ public class TeleportCaster : MonoBehaviour
         teleportAreaPosition.y = playerConfig.TeleportAreaPrefab.transform.position.y;
         teleportArea.transform.position = teleportAreaPosition;
         teleportTarget = GetTeleportableFireSource(endPoint);
-        teleportArea.color = teleportTarget != null ? playerConfig.TeleportAreaColorAllowed : playerConfig.TeleportAreaColorUnallowed;
+        teleportArea.enabled = teleportTarget != null;
     }
 
     void Teleport() {
@@ -92,12 +94,17 @@ public class TeleportCaster : MonoBehaviour
             Vector3 position = transform.position;
             position.x = teleportTarget.transform.position.x;
             position.z = teleportTarget.transform.position.z;
+            previousTeleportTarget = teleportTarget;
             transform.position = position;
+            playerHandConfig.triggerJump = true;
         }
     }
 
     FireSource GetTeleportableFireSource(Vector3 endPoint) {
         foreach (FireSource source in FireSourceManager.main.GetNearSources(endPoint)) {
+            if (source == previousTeleportTarget) {
+                continue;
+            }
             Vector3 heading = source.transform.position - transform.position;
             float distanceToPlayer = Vector3.Distance(transform.position, source.transform.position);
             float distance = heading.magnitude;
