@@ -28,6 +28,7 @@ ModelImporter:
     100044: Bone_020
     100046: Bone_021
     100048: Cube
+    100050: effect
     400000: //RootNode
     400002: Armature
     400004: Bone
@@ -53,6 +54,7 @@ ModelImporter:
     400044: Bone_020
     400046: Bone_021
     400048: Cube
+    400050: effect
     2100000: unnamed
     2100002: hands_material__hands_psd
     2300000: //RootNode
