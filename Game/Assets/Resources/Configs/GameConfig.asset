@@ -24,5 +24,5 @@ MonoBehaviour:
   burnableLayer:
     serializedVersion: 2
     m_Bits: 4096
-  VisualDebug: 1
+  VisualDebug: 0
   LogLevel: 3

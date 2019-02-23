@@ -61,14 +61,18 @@ public class FireSource : MonoBehaviour
         pos.y = 0.1f;
         debugRenderer.transform.position = pos;
         FireSourceManager.main.AddFireSource(this);
-        if (!isLit) {
+        if (!isLit)
+        {
             Extinguish();
         }
     }
 
     void Update()
     {
-        debugRenderer.enabled = gameConfig.VisualDebug && isLit;
+        if (debugRenderer != null)
+        {
+            debugRenderer.enabled = gameConfig.VisualDebug && isLit;
+        }
     }
 
     public void Extinguish()
