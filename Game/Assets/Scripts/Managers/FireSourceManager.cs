@@ -25,12 +25,14 @@ public class FireSourceManager : MonoBehaviour {
      }
 
     // Returns list of sources sorted by distance to player
-    public List<FireSource> GetNearSources(Vector3 position) {
+    public List<FireSource> GetLitNearSources(Vector3 position) {
         List<FireSource> nearSources = new List<FireSource>();
         foreach(FireSource source in fireSources) {
-            source.distanceToCursor = Vector3.Distance(position, source.transform.position);
-            if (source.distanceToCursor <= source.Range) {
-                nearSources.Add(source);
+            if (source.IsLit) {
+                source.distanceToCursor = Vector3.Distance(position, source.transform.position);
+                if (source.distanceToCursor <= source.Range) {
+                    nearSources.Add(source);
+                }
             }
         }
         nearSources.Sort(SortByDistance);

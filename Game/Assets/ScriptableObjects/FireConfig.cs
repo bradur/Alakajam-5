@@ -14,10 +14,16 @@ public class FireConfig : ScriptableObject
     private float defaultSize;
     public float DefaultSize { get { return defaultSize; } }
 
+    [SerializeField]
+    private float maxDistance = 10f;
+    public float MaxDistance { get { return maxDistance; } }
 
     [SerializeField]
-    private LayerMask collideMask;
-    public LayerMask CollideMask { get { return collideMask; } }
+    private Material torchHighlightMaterial;
+    public Material TorchHighlightMaterial { get { return torchHighlightMaterial; } }
 
+    [SerializeField]
+    private Material torchDefaultMaterial;
+    public Material TorchDefaultMaterial { get { return torchDefaultMaterial; } }
 
 }

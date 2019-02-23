@@ -17,6 +17,7 @@ public class Hands : MonoBehaviour
     {
         config = ConfigManager.main.GetConfig("PlayerHandConfig") as PlayerHandConfig;
         animator = GetComponent<Animator>();
+        config.hasFire = false;
 
         if (fireEffect != null)
         {
@@ -29,6 +30,7 @@ public class Hands : MonoBehaviour
     {
         if (config.triggerGrab)
         {
+            config.hasFire = true;
             config.triggerGrab = false;
             if (!grabbed)
             {
@@ -43,6 +45,7 @@ public class Hands : MonoBehaviour
 
         if (config.triggerThrow)
         {
+            config.hasFire = false;
             config.triggerThrow = false;
             animator.SetBool("grabbed", false);
             grabbed = false;

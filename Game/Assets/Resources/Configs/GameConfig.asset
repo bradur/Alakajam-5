@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundLayer:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 512
   wallLayer:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 1024
+  torchLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   VisualDebug: 1
-  LogLevel: 2
+  LogLevel: 3
