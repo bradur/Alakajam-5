@@ -13,7 +13,8 @@ public class KeyConfig : ScriptableObject {
 public enum PlayerAction
 {
     None,
-    Teleport
+    Teleport,
+    ExtinguishOrLightFire
 }
 
 [System.Serializable]

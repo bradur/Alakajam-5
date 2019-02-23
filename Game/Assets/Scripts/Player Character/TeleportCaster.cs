@@ -46,11 +46,10 @@ public class TeleportCaster : MonoBehaviour
         }
     }
 
-    void Update()
-    {
+    void CheckTeleportationPossibilities() {
         RaycastHit hit;
         Vector3 endPoint = transform.TransformDirection(Vector3.forward);
-        bool rayHitSomething = CastRay(endPoint, out hit);
+        bool rayHitSomething = CastTeleportCheckRay(endPoint, out hit);
         if (rayHitSomething)
         {
             Vector3 point = hit.point;
@@ -65,12 +64,28 @@ public class TeleportCaster : MonoBehaviour
             DrawTeleportArea(point);
         }
         DebugRayCast(hit, rayHitSomething);
+    }
+
+    void ProcessInput() {
         if (KeyManager.main.GetKeyDown(PlayerAction.Teleport)) {
             Teleport();
         }
     }
 
-    bool CastRay(Vector3 endPoint, out RaycastHit hit)
+    void Update()
+    {
+        if (playerHandConfig.hasFire) {
+            if (teleportTarget != null) {
+                teleportArea.enabled = false;
+                teleportTarget = null;
+            }
+        } else {
+            CheckTeleportationPossibilities();
+        }
+        ProcessInput();
+    }
+
+    bool CastTeleportCheckRay(Vector3 endPoint, out RaycastHit hit)
     {
         return Physics.Raycast(
             transform.position,
@@ -101,7 +116,7 @@ public class TeleportCaster : MonoBehaviour
     }
 
     FireSource GetTeleportableFireSource(Vector3 endPoint) {
-        foreach (FireSource source in FireSourceManager.main.GetNearSources(endPoint)) {
+        foreach (FireSource source in FireSourceManager.main.GetLitNearSources(endPoint)) {
             if (source == previousTeleportTarget) {
                 continue;
             }
