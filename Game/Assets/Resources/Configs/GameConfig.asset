@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b70680d38c41314d890337f59d82ab8, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  VisualDebug: 0
-  LogLevel: 3
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 32
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 16
+  VisualDebug: 1
+  LogLevel: 2
