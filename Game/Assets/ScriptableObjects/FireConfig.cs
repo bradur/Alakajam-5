@@ -10,13 +10,12 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "NewFireConfig", menuName = "New FireConfig")]
 public class FireConfig : ScriptableObject
 {
-    [SerializeField]
-    private float defaultSize;
-    public float DefaultSize { get { return defaultSize; } }
 
     [SerializeField]
     private float maxDistance = 10f;
     public float MaxDistance { get { return maxDistance; } }
+
+    [Header("Torch")]
 
     [SerializeField]
     private Material torchHighlightMaterial;
@@ -25,5 +24,17 @@ public class FireConfig : ScriptableObject
     [SerializeField]
     private Material torchDefaultMaterial;
     public Material TorchDefaultMaterial { get { return torchDefaultMaterial; } }
+
+    [Header("Burnable")]
+    [SerializeField]
+    private Material burnableHighlightMaterial;
+    public Material BurnableHighlightMaterial { get { return burnableHighlightMaterial; } }
+
+    [SerializeField]
+    private Material burnableDefaultMaterial;
+    public Material BurnableDefaultMaterial { get { return burnableDefaultMaterial; } }
+
+    private Material burnableIsBurningMaterial;
+    public Material BurnableIsBurningMaterial { get { return burnableIsBurningMaterial; } }
 
 }
