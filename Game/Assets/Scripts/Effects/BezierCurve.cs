@@ -62,7 +62,7 @@ public class BezierCurve : MonoBehaviour
     }
 
     void DebugPoints() {
-        if (gameConfig.VisualDebug) {
+        if (playerConfig.DrawCurve && gameConfig.VisualDebug) {
             if (debugPoints == null) {
                 debugPoints = new Transform[3] {
                     Instantiate(playerConfig.TeleportPointDebugPrefab),

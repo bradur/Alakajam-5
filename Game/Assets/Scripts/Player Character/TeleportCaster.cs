@@ -10,14 +10,20 @@ public class TeleportCaster : MonoBehaviour
 
     private PlayerConfig playerConfig;
     private GameConfig gameConfig;
+    private FireConfig fireConfig;
+
+    private FireSourceManager fireSource;
 
     private BezierCurve curve;
     private SpriteRenderer teleportArea;
+
+    private FireSource teleportTarget;
 
     void Start()
     {
         playerConfig = ConfigManager.main.GetConfig("PlayerConfig") as PlayerConfig;
         gameConfig = ConfigManager.main.GetConfig("GameConfig") as GameConfig;
+        fireConfig = ConfigManager.main.GetConfig("FireConfig") as FireConfig;
         InitializeCurve();
         teleportArea = Instantiate(playerConfig.TeleportAreaPrefab);
         teleportArea.transform.SetParent(transform.parent);
@@ -57,6 +63,9 @@ public class TeleportCaster : MonoBehaviour
             DrawTeleportArea(point);
         }
         DebugRayCast(hit, rayHitSomething);
+        if (KeyManager.main.GetKeyDown(PlayerAction.Teleport)) {
+            Teleport();
+        }
     }
 
     bool CastRay(Vector3 endPoint, out RaycastHit hit)
@@ -66,14 +75,53 @@ public class TeleportCaster : MonoBehaviour
             endPoint,
             out hit,
             playerConfig.MaxDistance,
-            playerConfig.CollideMask
+            gameConfig.GroundLayer | gameConfig.WallLayer
         );
     }
 
     void DrawTeleportArea(Vector3 endPoint) {
         Vector3 teleportAreaPosition = endPoint;
-        teleportAreaPosition.y = -0.49f;
+        teleportAreaPosition.y = playerConfig.TeleportAreaPrefab.transform.position.y;
         teleportArea.transform.position = teleportAreaPosition;
+        teleportTarget = GetTeleportableFireSource(endPoint);
+        teleportArea.color = teleportTarget != null ? playerConfig.TeleportAreaColorAllowed : playerConfig.TeleportAreaColorUnallowed;
+    }
+
+    void Teleport() {
+        if (teleportTarget != null) {
+            Vector3 position = transform.position;
+            position.x = teleportTarget.transform.position.x;
+            position.z = teleportTarget.transform.position.z;
+            transform.position = position;
+        }
+    }
+
+    FireSource GetTeleportableFireSource(Vector3 endPoint) {
+        foreach (FireSource source in FireSourceManager.main.GetNearSources(endPoint)) {
+            Vector3 heading = source.transform.position - transform.position;
+            float distanceToPlayer = Vector3.Distance(transform.position, source.transform.position);
+            float distance = heading.magnitude;
+            Vector3 direction = heading / distance; // This is now the normalized direction.
+            RaycastHit hit;
+            bool wasHit = Physics.Raycast(
+                transform.position,
+                direction,
+                out hit,
+                distanceToPlayer + 0.05f,
+                gameConfig.WallLayer
+            );
+            if (gameConfig.VisualDebug) {
+                Debug.DrawRay(
+                    transform.position,
+                    direction * (distanceToPlayer + 0.05f),
+                    wasHit ? Color.magenta : Color.yellow
+                );
+            }
+            if (!wasHit) {
+                return source;
+            }
+        }
+        return null;
     }
 
     void DrawCurve(Vector3 endPoint)

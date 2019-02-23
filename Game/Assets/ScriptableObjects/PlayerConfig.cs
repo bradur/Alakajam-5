@@ -44,10 +44,13 @@ public class PlayerConfig : ScriptableObject
     private float maxDistance = 10f;
     public float MaxDistance { get { return maxDistance; } }
 
-    [SerializeField]
-    private LayerMask collideMask;
-    public LayerMask CollideMask { get { return collideMask; } }
+     [SerializeField]
+    private Color teleportAreaColorAllowed = Color.green;
+    public Color TeleportAreaColorAllowed { get { return teleportAreaColorAllowed; } }
 
+    [SerializeField]
+    private Color teleportAreaColorUnallowed = Color.red;
+    public Color TeleportAreaColorUnallowed { get { return teleportAreaColorUnallowed; } }
 
     [SerializeField]
     private float minDistance = 2f;
