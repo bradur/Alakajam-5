@@ -32,6 +32,8 @@ public class AudioManager : MonoBehaviour
         musicPlayer = Instantiate(audioConfig.MusicPlayerPrefab);
         musicPlayer.transform.SetParent(transform);
         musicPlayer.clip = audioConfig.Music;
+        musicMuted = audioConfig.MusicMuted;
+        sfxMuted = audioConfig.MusicMuted;
         if (musicPlayer.clip != null)
         {
             if (musicMuted)
