@@ -63,6 +63,19 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+    public void StopSound(SoundType soundType)
+    {
+        foreach (GameSound gameSound in audioConfig.Sounds)
+        {
+            if (gameSound.soundType == soundType)
+            {
+                if (sfxPlayer.clip == gameSound.sound) {
+                    DebugLogger.main.LogMessage("Clip {0} was stopped!", sfxPlayer.clip);
+                    sfxPlayer.Stop();
+                }
+            }
+        }
+    }
 
     public void ToggleSfx()
     {

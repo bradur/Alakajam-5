@@ -112,6 +112,7 @@ public class TeleportCaster : MonoBehaviour
             previousTeleportTarget = teleportTarget;
             transform.position = position;
             playerHandConfig.triggerJump = true;
+            AudioManager.main.PlaySound(SoundType.Teleport);
         }
     }
 

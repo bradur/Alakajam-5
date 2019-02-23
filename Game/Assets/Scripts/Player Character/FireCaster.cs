@@ -46,11 +46,13 @@ public class FireCaster : MonoBehaviour
             if (targetFireSource.IsLit)
             {
                 targetFireSource.Extinguish();
+                AudioManager.main.PlaySound(SoundType.Extinguish);
                 playerHandConfig.triggerGrab = true;
             }
             else
             {
                 targetFireSource.Light();
+                AudioManager.main.PlaySound(SoundType.LightFire);
                 playerHandConfig.triggerThrow = true;
             }
         }
