@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hands : MonoBehaviour
 {
+    public GameObject fireEffect;
 
     private PlayerHandConfig config;
 
@@ -16,6 +17,11 @@ public class Hands : MonoBehaviour
     {
         config = ConfigManager.main.GetConfig("PlayerHandConfig") as PlayerHandConfig;
         animator = GetComponent<Animator>();
+
+        if (fireEffect != null)
+        {
+            fireEffect.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -28,6 +34,10 @@ public class Hands : MonoBehaviour
             {
                 animator.SetBool("grabbed", true);
                 grabbed = true;
+                if (fireEffect != null)
+                {
+                    fireEffect.SetActive(true);
+                }
             }
         }
 
@@ -36,6 +46,10 @@ public class Hands : MonoBehaviour
             config.triggerThrow = false;
             animator.SetBool("grabbed", false);
             grabbed = false;
+            if (fireEffect != null)
+            {
+                fireEffect.SetActive(false);
+            }
         }
 
         if (config.triggerJump)
