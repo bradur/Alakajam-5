@@ -5,7 +5,11 @@ using System.Collections.Generic;
 
 public enum SoundType
 {
-    None
+    None,
+    Extinguish,
+    LightFire,
+    Burn,
+    Teleport
 }
 
 [CreateAssetMenu(fileName = "NewAudioConfig", menuName = "New AudioConfig")]

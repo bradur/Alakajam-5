@@ -12,9 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac89aa380a3b4b459c71e905f879d5b, type: 3}
   m_Name: AudioConfig
   m_EditorClassIdentifier: 
-  objectName: AudioConfig
   sfxPlayerPrefab: {fileID: 7370746683580622118, guid: ecc97fd6331e18f4eaa90052e8a04b44,
     type: 3}
   musicPlayerPrefab: {fileID: 5962978114159094175, guid: 9b96e835176d7fd4a81e72b730a0e69e,
     type: 3}
-  sounds: []
+  sounds:
+  - soundType: 1
+    sound: {fileID: 8300000, guid: c09e2ec76b6caaf43802dfb29751d876, type: 3}
+    sounds: []
+  - soundType: 2
+    sound: {fileID: 8300000, guid: 40e2f39e60d913746adeb787f4c51a2a, type: 3}
+    sounds: []
+  - soundType: 3
+    sound: {fileID: 8300000, guid: 68ae4940e85faac4eb60efa635245e2c, type: 3}
+    sounds: []
+  - soundType: 4
+    sound: {fileID: 8300000, guid: fd2edfec6d7b4924b8777b8e536a139a, type: 3}
+    sounds: []

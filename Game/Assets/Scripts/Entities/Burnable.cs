@@ -23,9 +23,11 @@ public class Burnable : MonoBehaviour
     public void Burn() {
         isLit = true;
         animator.SetTrigger("Burn");
+        AudioManager.main.PlaySound(SoundType.Burn);
     }
 
     public void BurnFinished() {
+        AudioManager.main.StopSound(SoundType.Burn);
         Destroy(gameObject);
     }
 
