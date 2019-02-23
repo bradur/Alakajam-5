@@ -16,8 +16,11 @@ public class KeyManager : MonoBehaviour
         main = this;
     }
 
-    [SerializeField]
     private KeyConfig keyConfig;
+
+    void Start () {
+        keyConfig = ConfigManager.main.GetConfig("KeyConfig") as KeyConfig;
+    }
 
     public bool GetKeyDown(PlayerAction action)
     {

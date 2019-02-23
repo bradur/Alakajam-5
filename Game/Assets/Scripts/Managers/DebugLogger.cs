@@ -28,9 +28,13 @@ public class DebugLogger : MonoBehaviour {
         main = this;
     }
 
+    void Start () {
+        InitializeConfig();
+    }
+
     private void InitializeConfig() {
         if (gameConfig == null) {
-            //gameConfig = GameManager.main.Config;
+            gameConfig = ConfigManager.main.GetConfig("GameConfig") as GameConfig;
         }
     }
 
