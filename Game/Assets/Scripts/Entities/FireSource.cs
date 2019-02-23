@@ -38,6 +38,9 @@ public class FireSource : MonoBehaviour
     private GameObject fire;
 
     [SerializeField]
+    private GameObject light;
+
+    [SerializeField]
     private GameObject torch;
 
     private FireConfig fireConfig;
@@ -85,11 +88,13 @@ public class FireSource : MonoBehaviour
     {
         isLit = false;
         fire.SetActive(false);
+        light.SetActive(false);
     }
 
     public void Light()
     {
         isLit = true;
         fire.SetActive(true);
+        light.SetActive(true);
     }
 }

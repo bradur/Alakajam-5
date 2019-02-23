@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLit: 1
   fire: {fileID: 3019864355207375233}
+  light: {fileID: 8848921184032346086}
   torch: {fileID: 2935273988036575617}
   range: 2
   distanceToCursor: 0
@@ -459,6 +460,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 63e0039cf37db4b46a3fe1bc64ebacc7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e6ecafb60c6ccd429e480f4fc69fdc5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63e0039cf37db4b46a3fe1bc64ebacc7, type: 3}
 --- !u!1 &2935273988036575617 stripped
@@ -480,6 +485,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8718835096558445474}
     m_Modifications:
+    - target: {fileID: 4955627555264934524, guid: db338af9d2c279245a8cf8aa805c7696,
+        type: 3}
+      propertyPath: m_Name
+      value: FlameLight
+      objectReference: {fileID: 0}
     - target: {fileID: 8395713195305663603, guid: db338af9d2c279245a8cf8aa805c7696,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -535,13 +545,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4955627555264934524, guid: db338af9d2c279245a8cf8aa805c7696,
-        type: 3}
-      propertyPath: m_Name
-      value: FlameLight
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db338af9d2c279245a8cf8aa805c7696, type: 3}
+--- !u!1 &8848921184032346086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4955627555264934524, guid: db338af9d2c279245a8cf8aa805c7696,
+    type: 3}
+  m_PrefabInstance: {fileID: 4469897326308720026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5371619272790999529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8395713195305663603, guid: db338af9d2c279245a8cf8aa805c7696,
