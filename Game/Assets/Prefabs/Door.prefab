@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7141906156097858144}
   - component: {fileID: 6181262787489567146}
   - component: {fileID: 3817583389021680293}
+  - component: {fileID: 1728855649813199653}
   m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
@@ -119,7 +120,7 @@ SphereCollider:
   m_GameObject: {fileID: 6894107887289324890}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -136,6 +137,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   burnable: {fileID: 7129918248278222333}
+--- !u!65 &1728855649813199653
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6894107887289324890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7172336, y: 0.707173, z: 0.14346182}
+  m_Center: {x: -0.0017260313, y: 0.1319937, z: 0.013612211}
 --- !u!1 &7702216652084602267
 GameObject:
   m_ObjectHideFlags: 0

@@ -134,9 +134,17 @@ public class FireCaster : MonoBehaviour
         {
             if ((!torch.FireSource.IsLit && playerHandConfig.hasFire) || (torch.FireSource.IsLit && !playerHandConfig.hasFire))
             {
-                previouslyHitTorch = torch;
-                torch.SetMaterial(fireConfig.TorchHighlightMaterial);
-                return torch.FireSource;
+                if (hit.distance < fireConfig.MinDistance)
+                {
+                    previouslyHitTorch = torch;
+                    torch.SetMaterial(fireConfig.TorchDeniedMaterial);
+                    return null;
+                } else
+                {
+                    previouslyHitTorch = torch;
+                    torch.SetMaterial(fireConfig.TorchHighlightMaterial);
+                    return torch.FireSource;
+                }
             }
 
         }
