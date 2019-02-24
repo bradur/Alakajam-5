@@ -6,6 +6,8 @@ public class Hands : MonoBehaviour
 {
     public List<GameObject> effects;
 
+    public ParticleSystem jumpEffect;
+
     private PlayerHandConfig config;
 
     private bool grabbed = false;
@@ -64,6 +66,8 @@ public class Hands : MonoBehaviour
             if (!grabbed)
             {
                 animator.SetTrigger("jump");
+                //jumpEffect.Stop();
+                jumpEffect.Play();
             }
         }
 
