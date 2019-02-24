@@ -43,6 +43,11 @@ public class FireSource : MonoBehaviour
     public bool IsLevelEnd { get { return isLevelEnd; } }
 
     [SerializeField]
+    private bool isLevelStart = false;
+    public bool IsLevelStart { get { return isLevelStart; } }
+
+
+    [SerializeField]
     private GameObject fire;
 
     [SerializeField]
@@ -81,6 +86,10 @@ public class FireSource : MonoBehaviour
         if (!isLit)
         {
             Extinguish();
+        }
+        if (isLevelStart) {
+            GameObject player = Instantiate(gameConfig.PlayerPrefab);
+            player.transform.position = TeleportPosition;
         }
     }
 
