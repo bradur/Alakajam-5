@@ -15,7 +15,7 @@ public class TeleportCaster : MonoBehaviour
     private FireSourceManager fireSource;
 
     private BezierCurve curve;
-    private SpriteRenderer teleportArea;
+    private GameObject teleportArea;
 
     private FireSource teleportTarget;
     private FireSource previousTeleportTarget;
@@ -31,7 +31,7 @@ public class TeleportCaster : MonoBehaviour
         InitializeCurve();
         teleportArea = Instantiate(playerConfig.TeleportAreaPrefab);
         teleportArea.transform.SetParent(transform.parent);
-        teleportArea.color = playerConfig.TeleportAreaColorAllowed;
+        //teleportArea.color = playerConfig.TeleportAreaColorAllowed;
     }
 
     void InitializeCurve()
@@ -86,11 +86,9 @@ public class TeleportCaster : MonoBehaviour
 
     void Update()
     {
-        if (playerHandConfig.hasFire)
-        {
-            if (teleportTarget != null)
-            {
-                teleportArea.enabled = false;
+        if (playerHandConfig.hasFire) {
+            if (teleportTarget != null) {
+                teleportArea.SetActive(false);
                 teleportTarget = null;
             }
         }
@@ -126,7 +124,7 @@ public class TeleportCaster : MonoBehaviour
         }
         teleportAreaPosition.y = playerConfig.TeleportAreaPrefab.transform.position.y;
         teleportArea.transform.position = teleportAreaPosition;
-        teleportArea.enabled = teleportTarget != null;
+        teleportArea.SetActive(teleportTarget != null);
     }
 
     void Teleport()
