@@ -8,7 +8,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class AnimateTextList : MonoBehaviour {
+public class AnimateTextList : MonoBehaviour
+{
 
     /*[SerializeField]
     private Color fadeInColor;
@@ -28,34 +29,61 @@ public class AnimateTextList : MonoBehaviour {
     [SerializeField]
     private float textFadeTime = 0.2f;
 
+    [SerializeField]
+    private bool isGameEnd = false;
+    public bool IsGameEnd { get { return isGameEnd; } }
+
+    [SerializeField]
+    private GameObject destroyThis;
+    public GameObject DestroyThis { get { return destroyThis; } }
+
+
     private float currentAlpha;
 
     private LevelConfig levelConfig;
 
-    private void Start() {
+    private void Start()
+    {
         levelConfig = ConfigManager.main.GetConfig("LevelConfig") as LevelConfig;
         FadeInText();
     }
 
-    public void FadeOutText() {
+    public void FadeOutText()
+    {
         currentAlpha = 1f;
         StartCoroutine(FadeOut());
     }
 
-    public void FadeInText() {
-        if (currentText < textList.Count) {
+    public void FadeInText()
+    {
+        if (currentText < textList.Count)
+        {
             txtTarget.text = textList[currentText];
             currentAlpha = 0f;
             currentText += 1;
             StartCoroutine(FadeIn());
-        } else {
-            levelConfig.CurrentSceneNumber = 1;
-            levelConfig.LoadingNextScene = true;
+        }
+        else
+        {
+            if (isGameEnd)
+            {
+                gameObject.SetActive(false);
+                if (destroyThis != null) {
+                    destroyThis.SetActive(false);
+                }
+            }
+            else
+            {
+                levelConfig.CurrentSceneNumber = 1;
+                levelConfig.LoadingNextScene = true;
+            }
         }
     }
 
-    void Update() {
-        if (Input.anyKeyDown) {
+    void Update()
+    {
+        if (Input.anyKeyDown)
+        {
             StopAllCoroutines();
             txtTarget.color = new Color(txtTarget.color.r, txtTarget.color.g, txtTarget.color.b, 0f);
             FadeInText();

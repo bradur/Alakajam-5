@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.05
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.039215688, g: 0.019607844, b: 0.039215688, a: 1}
+  m_AmbientSkyColor: {r: 0.05882353, g: 0.039215688, b: 0.05882353, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0
@@ -347,7 +347,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh391188
+  m_Name: pb_Mesh245194
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -2099,7 +2099,7 @@ GameObject:
   - component: {fileID: 314803113}
   - component: {fileID: 314803112}
   - component: {fileID: 314803116}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: pb-MergedObject-148014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5642,7 +5642,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh391086
+  m_Name: pb_Mesh245086
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -7145,7 +7145,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-785258
+  m_Name: pb_Mesh-216820
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -8250,6 +8250,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1075145901}
+    - target: {fileID: 3444373141898159078, guid: b2f9b693e62e3284cb2d8dd95ed87459,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3444373141898159077, guid: b2f9b693e62e3284cb2d8dd95ed87459,
         type: 3}
       propertyPath: m_SelectedFaces.Array.size
@@ -15271,7 +15276,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-784488
+  m_Name: pb_Mesh-216006
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -16232,7 +16237,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6524563413363782512, guid: 977bd8398b5dafc43ac5cb511d3d759c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 977bd8398b5dafc43ac5cb511d3d759c, type: 3}
 --- !u!1001 &2030749791
 PrefabInstance:
@@ -16383,7 +16389,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh391154
+  m_Name: pb_Mesh245160
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2

@@ -26,5 +26,9 @@ MonoBehaviour:
     m_Bits: 4096
   playerPrefab: {fileID: 120656735125551752, guid: 4930fdf83da191343ae2924373dfc243,
     type: 3}
+  gameEndPrefab: {fileID: 788782757352329915, guid: 6b022bdff51eb264d9740156055fc5b7,
+    type: 3}
+  menuPrefab: {fileID: 5734585136056030005, guid: bc73265cd0d1c11469ef0b890c130647,
+    type: 3}
   VisualDebug: 0
   LogLevel: 3
