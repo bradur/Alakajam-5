@@ -20,7 +20,7 @@ MonoBehaviour:
   offsetAnimationSpeed: 5
   curveHeight: 2
   curveColor: {r: 0, g: 1, b: 1, a: 1}
-  maxDistance: 10
+  maxDistance: 14
   teleportAreaColorAllowed: {r: 0, g: 1, b: 0, a: 1}
   minDistance: 2
   debugRayColorOnHit: {r: 0, g: 1, b: 0, a: 1}
