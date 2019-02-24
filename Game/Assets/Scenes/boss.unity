@@ -1517,7 +1517,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-605110
+  m_Name: pb_Mesh-52754
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -4148,6 +4148,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DoorFrame (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3444373141898159079, guid: b2f9b693e62e3284cb2d8dd95ed87459,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3444373141898159074, guid: b2f9b693e62e3284cb2d8dd95ed87459,
         type: 3}
