@@ -30,7 +30,10 @@ public class AnimateTextList : MonoBehaviour {
 
     private float currentAlpha;
 
+    private LevelConfig levelConfig;
+
     private void Start() {
+        levelConfig = ConfigManager.main.GetConfig("LevelConfig") as LevelConfig;
         FadeInText();
     }
 
@@ -46,7 +49,8 @@ public class AnimateTextList : MonoBehaviour {
             currentText += 1;
             StartCoroutine(FadeIn());
         } else {
-            LevelManager.main.LoadNextScene();
+            levelConfig.CurrentSceneNumber = 1;
+            levelConfig.LoadingNextScene = true;
         }
     }
 
