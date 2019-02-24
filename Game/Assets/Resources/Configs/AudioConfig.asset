@@ -20,8 +20,8 @@ MonoBehaviour:
   MusicMuted: 0
   music: {fileID: 8300000, guid: 69294ae353ed74d448fe411c20db4ee4, type: 3}
   endMusic: {fileID: 8300000, guid: 5ab062a69912a6249bf04f20a259fd48, type: 3}
-  musicVolume: 0.625
-  musicFadeTime: 3
+  musicVolume: 1
+  musicFadeTime: 0.5
   sounds:
   - soundType: 1
     sound: {fileID: 8300000, guid: c09e2ec76b6caaf43802dfb29751d876, type: 3}
