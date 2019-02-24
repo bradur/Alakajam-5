@@ -15,3 +15,5 @@ MonoBehaviour:
   triggerGrab: 0
   triggerThrow: 0
   triggerJump: 0
+  triggerSnap: 0
+  hasFire: 0

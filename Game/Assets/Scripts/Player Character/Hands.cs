@@ -66,5 +66,16 @@ public class Hands : MonoBehaviour
                 animator.SetTrigger("jump");
             }
         }
+
+        if (config.triggerSnap)
+        {
+            config.hasFire = false;
+            config.triggerSnap = false;
+            animator.SetTrigger("snap");
+            foreach (GameObject effect in effects)
+            {
+                effect.SetActive(false);
+            }
+        }
     }
 }
