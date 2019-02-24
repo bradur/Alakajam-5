@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
         {
             levelConfig.CurrentSceneNumber = levelConfig.CurrentScene.buildIndex;
         }
-        if (levelConfig.CurrentSceneIsLast)
+        if (SceneManager.GetActiveScene().name == "boss")
         {
             AudioManager.main.FadeInBossMusic();
         }
@@ -74,6 +74,9 @@ public class LevelManager : MonoBehaviour
             {
                 menu.SetActive(!menu.activeSelf);
             }
+        }
+        if (Input.GetKeyDown(KeyCode.P)) {
+            LoadNextScene();
         }
         if (Input.GetKeyDown(KeyCode.Q) && menu != null && menu.activeSelf)
         {
