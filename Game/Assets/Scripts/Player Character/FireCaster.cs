@@ -134,7 +134,7 @@ public class FireCaster : MonoBehaviour
         {
             if ((!torch.FireSource.IsLit && playerHandConfig.hasFire) || (torch.FireSource.IsLit && !playerHandConfig.hasFire))
             {
-                if (hit.distance < fireConfig.MinDistance)
+                if (hit.distance < fireConfig.MinDistance || !torch.FireSource.Interactable)
                 {
                     previouslyHitTorch = torch;
                     torch.SetMaterial(fireConfig.TorchDeniedMaterial);

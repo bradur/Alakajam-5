@@ -35,6 +35,10 @@ public class FireSource : MonoBehaviour
     public bool IsLit { get { return isLit; } }
 
     [SerializeField]
+    private bool interactable = true;
+    public bool Interactable { get { return interactable; } }
+
+    [SerializeField]
     private bool isLevelEnd = false;
     public bool IsLevelEnd { get { return isLevelEnd; } }
 
@@ -90,15 +94,21 @@ public class FireSource : MonoBehaviour
 
     public void Extinguish()
     {
-        isLit = false;
-        fire.SetActive(false);
-        light.SetActive(false);
+        if (interactable)
+        {
+            isLit = false;
+            fire.SetActive(false);
+            light.SetActive(false);
+        }
     }
 
     public void Light()
     {
-        isLit = true;
-        fire.SetActive(true);
-        light.SetActive(true);
+        if (interactable)
+        {
+            isLit = true;
+            fire.SetActive(true);
+            light.SetActive(true);
+        }
     }
 }
