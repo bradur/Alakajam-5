@@ -20,6 +20,8 @@ public class TeleportCaster : MonoBehaviour
     private FireSource teleportTarget;
     private FireSource previousTeleportTarget;
 
+    public FireSource PreviousTeleportTarget { set { previousTeleportTarget = value; } }
+
     void Start()
     {
         playerConfig = ConfigManager.main.GetConfig("PlayerConfig") as PlayerConfig;
@@ -32,21 +34,29 @@ public class TeleportCaster : MonoBehaviour
         //teleportArea.color = playerConfig.TeleportAreaColorAllowed;
     }
 
-    void InitializeCurve() {
-        if (playerConfig.DrawCurve && curve == null) {
+    void InitializeCurve()
+    {
+        if (playerConfig.DrawCurve && curve == null)
+        {
             curve = Instantiate(playerConfig.CurvePrefab);
             curve.transform.SetParent(transform);
             curve.Initialize();
-        } else if(curve != null) {
-            if (playerConfig.DrawCurve) {
+        }
+        else if (curve != null)
+        {
+            if (playerConfig.DrawCurve)
+            {
                 curve.Enable();
-            } else {
+            }
+            else
+            {
                 curve.Disable();
             }
         }
     }
 
-    void CheckTeleportationPossibilities() {
+    void CheckTeleportationPossibilities()
+    {
         RaycastHit hit;
         Vector3 endPoint = transform.TransformDirection(Vector3.forward);
         bool rayHitSomething = CastTeleportCheckRay(endPoint, out hit);
@@ -66,8 +76,10 @@ public class TeleportCaster : MonoBehaviour
         DebugRayCast(hit, rayHitSomething);
     }
 
-    void ProcessInput() {
-        if (KeyManager.main.GetKeyDown(PlayerAction.Teleport)) {
+    void ProcessInput()
+    {
+        if (KeyManager.main.GetKeyDown(PlayerAction.Teleport))
+        {
             Teleport();
         }
     }
@@ -79,7 +91,9 @@ public class TeleportCaster : MonoBehaviour
                 teleportArea.SetActive(false);
                 teleportTarget = null;
             }
-        } else {
+        }
+        else
+        {
             CheckTeleportationPossibilities();
         }
         ProcessInput();
@@ -96,12 +110,16 @@ public class TeleportCaster : MonoBehaviour
         );
     }
 
-    void DrawTeleportArea(Vector3 endPoint) {
+    void DrawTeleportArea(Vector3 endPoint)
+    {
         teleportTarget = GetTeleportableFireSource(endPoint);
         Vector3 teleportAreaPosition;
-        if (teleportTarget != null) {
+        if (teleportTarget != null)
+        {
             teleportAreaPosition = teleportTarget.TeleportPosition;
-        } else {
+        }
+        else
+        {
             teleportAreaPosition = endPoint;
         }
         teleportAreaPosition.y = playerConfig.TeleportAreaPrefab.transform.position.y;
@@ -109,8 +127,10 @@ public class TeleportCaster : MonoBehaviour
         teleportArea.SetActive(teleportTarget != null);
     }
 
-    void Teleport() {
-        if (teleportTarget != null) {
+    void Teleport()
+    {
+        if (teleportTarget != null)
+        {
             Vector3 position = transform.position;
             Vector3 targetPosition = teleportTarget.TeleportPosition;
             position.x = targetPosition.x;
@@ -119,16 +139,20 @@ public class TeleportCaster : MonoBehaviour
             transform.position = position;
             playerHandConfig.triggerJump = true;
             AudioManager.main.PlaySound(SoundType.Teleport);
-            if (teleportTarget.IsLevelEnd) {
+            if (teleportTarget.IsLevelEnd)
+            {
                 Debug.Log("Next level!");
                 LevelManager.main.LoadNextScene();
             }
         }
     }
 
-    FireSource GetTeleportableFireSource(Vector3 endPoint) {
-        foreach (FireSource source in FireSourceManager.main.GetLitNearSources(endPoint)) {
-            if (source == previousTeleportTarget) {
+    FireSource GetTeleportableFireSource(Vector3 endPoint)
+    {
+        foreach (FireSource source in FireSourceManager.main.GetLitNearSources(endPoint))
+        {
+            if (source == previousTeleportTarget)
+            {
                 continue;
             }
             Vector3 heading = source.TeleportPosition - transform.position;
@@ -143,14 +167,16 @@ public class TeleportCaster : MonoBehaviour
                 distanceToPlayer + 0.05f,
                 gameConfig.WallLayer
             );
-            if (gameConfig.VisualDebug) {
+            if (gameConfig.VisualDebug)
+            {
                 Debug.DrawRay(
                     transform.position,
                     direction * (distanceToPlayer + 0.05f),
                     wasHit ? Color.magenta : Color.yellow
                 );
             }
-            if (!wasHit) {
+            if (!wasHit)
+            {
                 return source;
             }
         }
@@ -160,7 +186,8 @@ public class TeleportCaster : MonoBehaviour
     void DrawCurve(Vector3 endPoint)
     {
         InitializeCurve();
-        if (playerConfig.DrawCurve) { 
+        if (playerConfig.DrawCurve)
+        {
             float y = 0f;
             Vector3 startPoint = new Vector3(transform.position.x, y, transform.position.z);
             endPoint.y = -1f;
