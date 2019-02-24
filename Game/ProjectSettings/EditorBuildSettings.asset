@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/game.unity
-    guid: 11a2b52789151fe4db255cdcb7cf8a0c
+    path: Assets/Scenes/two_doors.unity
+    guid: b3b34c6e95ac90643a92df1222bc395a
+  - enabled: 1
+    path: Assets/Scenes/maze_of_torches.unity
+    guid: 5ad1dbc8ed0de6441aa21f63bb103d02
+  - enabled: 1
+    path: Assets/Scenes/whichdoorisit.unity
+    guid: de118a81408d4fd4ea62c260a6f8866b
   m_configObjects: {}

@@ -119,6 +119,10 @@ public class TeleportCaster : MonoBehaviour
             transform.position = position;
             playerHandConfig.triggerJump = true;
             AudioManager.main.PlaySound(SoundType.Teleport);
+            if (teleportTarget.IsLevelEnd) {
+                Debug.Log("Next level!");
+                LevelManager.main.LoadNextScene();
+            }
         }
     }
 
