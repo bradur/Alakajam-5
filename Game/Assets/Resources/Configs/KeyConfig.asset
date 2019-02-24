@@ -17,3 +17,7 @@ MonoBehaviour:
     action: 1
   - keyCodes: 44010000
     action: 2
+  - keyCodes: 72000000
+    action: 3
+  - keyCodes: 1b000000
+    action: 4

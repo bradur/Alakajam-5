@@ -14,7 +14,9 @@ public enum PlayerAction
 {
     None,
     Teleport,
-    ExtinguishOrLightFire
+    ExtinguishOrLightFire,
+    Restart,
+    Quit
 }
 
 [System.Serializable]
