@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     public bool MusicMuted { get { return musicMuted; } }
 
     private AudioSource sfxPlayer;
+    private AudioSource secondSfxPlayer;
 
     private AudioSource musicPlayer;
 
@@ -29,6 +30,8 @@ public class AudioManager : MonoBehaviour
         audioConfig = ConfigManager.main.GetConfig("AudioConfig") as AudioConfig;
         sfxPlayer = Instantiate(audioConfig.SfxPlayerPrefab);
         sfxPlayer.transform.SetParent(transform);
+        secondSfxPlayer = Instantiate(audioConfig.SfxPlayerPrefab);
+        secondSfxPlayer.transform.SetParent(transform);
         GameObject musicPlayerObject = GameObject.FindGameObjectWithTag("MusicPlayer");
         if (musicPlayerObject == null) {
             musicPlayer = Instantiate(audioConfig.MusicPlayerPrefab);
@@ -61,12 +64,13 @@ public class AudioManager : MonoBehaviour
             {
                 if (gameSound.soundType == soundType)
                 {
-                    sfxPlayer.clip = gameSound.sound;
+                    AudioSource source = !sfxPlayer.isPlaying ? sfxPlayer : secondSfxPlayer;
+                    source.clip = gameSound.sound;
                     if (gameSound.sounds.Count > 0)
                     {
-                        sfxPlayer.clip = gameSound.sounds[Random.Range(0, gameSound.sounds.Count)];
+                        source.clip = gameSound.sounds[Random.Range(0, gameSound.sounds.Count)];
                     }
-                    sfxPlayer.Play();
+                    source.Play();
                 }
             }
         }
@@ -80,6 +84,10 @@ public class AudioManager : MonoBehaviour
                 if (sfxPlayer.clip == gameSound.sound) {
                     DebugLogger.main.LogMessage("Clip {0} was stopped!", sfxPlayer.clip);
                     sfxPlayer.Stop();
+                }
+                if (secondSfxPlayer.clip == gameSound.sound) {
+                    DebugLogger.main.LogMessage("Clip {0} was stopped!", sfxPlayer.clip);
+                    secondSfxPlayer.Stop();
                 }
             }
         }

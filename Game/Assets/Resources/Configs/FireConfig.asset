@@ -19,7 +19,7 @@ MonoBehaviour:
   torchDeniedMaterial: {fileID: 2100000, guid: 8fbb11e9237ec904e8cceaf9a6d91876, type: 2}
   torchDefaultMaterial: {fileID: 2100000, guid: be3989b6a53a2b34d9b0d98a3f52600a,
     type: 2}
-  burnableHighlightMaterial: {fileID: 2100000, guid: 1e0e9f27b1a12954cac83243f8e42def,
+  burnableHighlightMaterial: {fileID: 2100000, guid: 6a8ac9c0cb104384d8e92852b1c326fb,
     type: 2}
   burnableDefaultMaterial: {fileID: 2100000, guid: 240d1c08ed9cc8d4881746be5cbae782,
     type: 2}
