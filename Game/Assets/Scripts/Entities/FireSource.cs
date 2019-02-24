@@ -91,14 +91,20 @@ public class FireSource : MonoBehaviour
     public void Extinguish()
     {
         isLit = false;
-        fire.SetActive(false);
+        if (fire != null)
+        {
+            fire.SetActive(false);
+        }
         light.SetActive(false);
     }
 
     public void Light()
     {
         isLit = true;
-        fire.SetActive(true);
+        if (fire != null)
+        {
+            fire.SetActive(true);
+        }
         light.SetActive(true);
     }
 }
