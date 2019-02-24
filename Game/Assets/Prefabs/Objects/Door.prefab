@@ -34,6 +34,19 @@ Transform:
   m_Father: {fileID: 5168364010915373408}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7176493509762259847
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3755408820069875024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.998312, y: 19.99831, z: 3.506241}
+  m_Center: {x: 0.065211296, y: 10.042534, z: 0.025676489}
 --- !u!1 &6894107887289324890
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +181,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burnable: {fileID: 7129918248278222333}
   meshRenderer: {fileID: 6922550890909985961}
+--- !u!65 &4700222432085108603
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7138734806115915227}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.683333, y: 3.718674, z: 0.56412816}
+  m_Center: {x: 0.064546846, y: 0.0808913, z: -0.012445003}
 --- !u!1 &7702216652084602267
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +495,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77cde280632b8ca48affdc5d15e3c783, type: 3}
+--- !u!1 &3755408820069875024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 77cde280632b8ca48affdc5d15e3c783,
+    type: 3}
+  m_PrefabInstance: {fileID: 3755408820069972976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3755408820070097264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 77cde280632b8ca48affdc5d15e3c783,
@@ -632,6 +664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106607783842157683, guid: f3a17e34e2839fb48a02166716ce5676,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6009962736743847307, guid: f3a17e34e2839fb48a02166716ce5676, type: 3}
