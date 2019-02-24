@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
   currentSceneNumber: 0
+  LoadingNextScene: 0
+  RestartingScene: 0

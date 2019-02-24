@@ -23,6 +23,7 @@ public class Burnable : MonoBehaviour
     public void Burn() {
         isLit = true;
         animator.SetTrigger("Burn");
+        AudioManager.main.PlaySound(SoundType.LightFire);
         AudioManager.main.PlaySound(SoundType.Burn);
     }
 

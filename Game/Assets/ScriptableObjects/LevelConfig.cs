@@ -26,4 +26,6 @@ public class LevelConfig : ScriptableObject
 
     public bool LoadingNextScene = false;
 
+    public bool RestartingScene = false;
+
 }

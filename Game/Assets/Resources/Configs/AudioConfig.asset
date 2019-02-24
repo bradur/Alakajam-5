@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxPlayerPrefab: {fileID: 7370746683580622118, guid: ecc97fd6331e18f4eaa90052e8a04b44,
     type: 3}
-  SfxMuted: 1
+  SfxMuted: 0
   musicPlayerPrefab: {fileID: 5962978114159094175, guid: 9b96e835176d7fd4a81e72b730a0e69e,
     type: 3}
-  MusicMuted: 1
+  MusicMuted: 0
   music: {fileID: 8300000, guid: 69294ae353ed74d448fe411c20db4ee4, type: 3}
   sounds:
   - soundType: 1
@@ -31,4 +31,7 @@ MonoBehaviour:
     sounds: []
   - soundType: 4
     sound: {fileID: 8300000, guid: fd2edfec6d7b4924b8777b8e536a139a, type: 3}
+    sounds: []
+  - soundType: 5
+    sound: {fileID: 8300000, guid: afbe9b5fcb7ea9346913a9e5901b0a01, type: 3}
     sounds: []
