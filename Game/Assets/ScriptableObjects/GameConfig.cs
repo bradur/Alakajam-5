@@ -33,6 +33,10 @@ public class GameConfig : ScriptableObject
     public GameObject PlayerPrefab { get { return playerPrefab; } }
 
 
+    [SerializeField]
+    private GameObject gameEndPrefab;
+    public GameObject GameEndPrefab { get { return gameEndPrefab; } }
+
     [Header("Debugging")]
 
     public bool VisualDebug = false;

@@ -26,6 +26,10 @@ public class FireSource : MonoBehaviour
 
 
     [SerializeField]
+    private bool isGameEnd = false;
+    public bool IsGameEnd { get { return isGameEnd; } }
+
+    [SerializeField]
     private GameObject fire;
 
     [SerializeField]
@@ -64,7 +68,8 @@ public class FireSource : MonoBehaviour
         {
             Extinguish();
         }
-        if (isLevelStart) {
+        if (isLevelStart)
+        {
             GameObject player = Instantiate(gameConfig.PlayerPrefab);
             player.GetComponentInChildren<TeleportCaster>().PreviousTeleportTarget = this;
             player.transform.position = TeleportPosition;
@@ -102,6 +107,11 @@ public class FireSource : MonoBehaviour
                 fire.SetActive(true);
             }
             light.SetActive(true);
+            if (isGameEnd)
+            {
+                Instantiate(gameConfig.GameEndPrefab);
+                interactable = false;
+            }
         }
     }
 }

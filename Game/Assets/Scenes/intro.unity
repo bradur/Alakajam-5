@@ -1036,13 +1036,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtTarget: {fileID: 1900723614}
   textList:
-  - 
   - The Wizard, Zarguuf
+  - Although crippled
   - Was so powerful
   - That King Vizic the Bold locked him up
   - And threw away the key
   - '...'
   textFadeTime: 2
+  isGameEnd: 0
 --- !u!114 &1900723614
 MonoBehaviour:
   m_ObjectHideFlags: 0
