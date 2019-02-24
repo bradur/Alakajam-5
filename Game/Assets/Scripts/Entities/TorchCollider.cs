@@ -14,7 +14,7 @@ public class TorchCollider : MonoBehaviour
     private MeshRenderer meshRenderer;
 
     void Start() {
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
     }
 
     public void SetMaterial(Material material) {

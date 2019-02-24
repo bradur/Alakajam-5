@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 50
   minDistance: 2
-  torchHighlightMaterial: {fileID: 2100000, guid: 7b75fd862a39c524597520c1eff2d4f7,
+  torchHighlightMaterial: {fileID: 2100000, guid: 6a8ac9c0cb104384d8e92852b1c326fb,
     type: 2}
-  torchDeniedMaterial: {fileID: 2100000, guid: 04b0053014155c040a5e8bb813dbff32, type: 2}
+  torchDeniedMaterial: {fileID: 2100000, guid: 8fbb11e9237ec904e8cceaf9a6d91876, type: 2}
   torchDefaultMaterial: {fileID: 2100000, guid: be3989b6a53a2b34d9b0d98a3f52600a,
     type: 2}
   burnableHighlightMaterial: {fileID: 2100000, guid: 1e0e9f27b1a12954cac83243f8e42def,
