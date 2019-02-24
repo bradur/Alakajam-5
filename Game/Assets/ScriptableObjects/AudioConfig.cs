@@ -35,6 +35,20 @@ public class AudioConfig : ScriptableObject
     public AudioClip Music { get { return music; } }
 
     [SerializeField]
+    private AudioClip endMusic;
+    public AudioClip EndMusic { get { return endMusic; } }
+
+    [SerializeField]
+    [Range(0, 1f)]
+    private float musicVolume = 1f;
+    public float MusicVolume { get { return musicVolume; } }
+
+    [SerializeField]
+    [Range(0.1f, 3f)]
+    private float musicFadeTime = 0.5f;
+    public float MusicFadeTime { get { return musicFadeTime; } }
+
+    [SerializeField]
     private List<GameSound> sounds;
 
     public List<GameSound> Sounds { get { return sounds; } }

@@ -26,6 +26,8 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    private float timer = 0f;
+
     private void Start() {
         audioConfig = ConfigManager.main.GetConfig("AudioConfig") as AudioConfig;
         sfxPlayer = Instantiate(audioConfig.SfxPlayerPrefab);
@@ -37,6 +39,7 @@ public class AudioManager : MonoBehaviour
             musicPlayer = Instantiate(audioConfig.MusicPlayerPrefab);
             musicPlayer.gameObject.tag = "MusicPlayer";
             musicPlayer.clip = audioConfig.Music;
+            musicPlayer.volume = audioConfig.MusicVolume;
             DontDestroyOnLoad(musicPlayer);
         } else {
             musicPlayer = musicPlayerObject.GetComponent<AudioSource>();
@@ -53,6 +56,52 @@ public class AudioManager : MonoBehaviour
             {
                 musicPlayer.Play();
             }
+        }
+    }
+
+    IEnumerator FadeIn(AudioSource audioSource, AudioClip clip, float fadeTime, float targetVolume)
+    {
+        while (timer > 0) {
+            timer -= Time.unscaledDeltaTime;
+            yield return null;
+        }
+        if (!audioSource.isPlaying) {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
+        float startVolume = audioSource.volume;
+        while (audioSource.volume < targetVolume)
+        {
+            audioSource.volume += Time.unscaledDeltaTime / fadeTime;
+            yield return null;
+        }
+        
+        audioSource.volume = targetVolume;
+    }
+
+    IEnumerator FadeOut(AudioSource audioSource, float fadeTime)
+    {
+        float startVolume = audioSource.volume;
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.unscaledDeltaTime / fadeTime;
+            yield return null;
+        }
+
+        audioSource.Pause();
+    }
+
+    public void FadeOutMusic() {
+        if (musicPlayer.isPlaying) {
+            StartCoroutine(FadeOut(musicPlayer, audioConfig.MusicFadeTime));
+        }
+    }
+
+    public void FadeInBossMusic() {
+        if (musicPlayer.clip != audioConfig.EndMusic) {
+            StartCoroutine(FadeOut(musicPlayer, audioConfig.MusicFadeTime));
+            timer = audioConfig.MusicFadeTime;
+            StartCoroutine(FadeIn(musicPlayer, audioConfig.EndMusic, audioConfig.MusicFadeTime, audioConfig.MusicVolume));
         }
     }
 

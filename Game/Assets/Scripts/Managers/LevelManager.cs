@@ -30,6 +30,9 @@ public class LevelManager : MonoBehaviour
         {
             levelConfig.CurrentSceneNumber = levelConfig.CurrentScene.buildIndex;
         }
+        if (levelConfig.CurrentSceneIsLast) {
+            AudioManager.main.FadeInBossMusic();
+        }
     }
 
     public void LoadNextScene()
