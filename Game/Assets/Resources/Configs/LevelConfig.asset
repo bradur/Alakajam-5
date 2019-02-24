@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad82a0492c2e23b41a15905ebbbeacc5, type: 3}
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
-  currentSceneNumber: 0
+  currentSceneNumber: 2
+  LoadingNextScene: 0
+  RestartingScene: 0

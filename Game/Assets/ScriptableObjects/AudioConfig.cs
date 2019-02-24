@@ -9,7 +9,8 @@ public enum SoundType
     Extinguish,
     LightFire,
     Burn,
-    Teleport
+    Teleport,
+    RestartSnap
 }
 
 [CreateAssetMenu(fileName = "NewAudioConfig", menuName = "New AudioConfig")]
