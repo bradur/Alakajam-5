@@ -11,10 +11,10 @@ public class BurnableCollider : MonoBehaviour
     private Burnable burnable;
     public Burnable Burnable { get { return burnable; } }
 
+    [SerializeField]
     private MeshRenderer meshRenderer;
 
     void Start() {
-        meshRenderer = GetComponent<MeshRenderer>();
     }
 
     public void SetMaterial(Material material) {

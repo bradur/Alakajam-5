@@ -18,8 +18,8 @@ MonoBehaviour:
   teleportAreaPrefab: {fileID: 7390893839312824538, guid: 6001d3f34a97e3240b102a177de91512,
     type: 3}
   offsetAnimationSpeed: 5
-  curveHeight: 2
-  curveColor: {r: 0, g: 1, b: 1, a: 1}
+  curveHeight: 1.5
+  curveColor: {r: 0, g: 0.7128029, b: 1, a: 0.8235294}
   maxDistance: 14
   teleportAreaColorAllowed: {r: 0, g: 1, b: 0, a: 1}
   minDistance: 2

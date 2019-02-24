@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: TeleportLineMaterial
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHABLEND_ON _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
-  m_LightmapFlags: 4
+  m_ShaderKeywords: _ALPHABLEND_ON _EMISSION _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
@@ -80,7 +80,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.4292453, g: 0.74707735, b: 1, a: 0.43529412}
-    - _EmissionColor: {r: 0.21172087, g: 0.5585827, b: 1.1486983, a: 1}
+    - _Color: {r: 0.042452812, g: 0.58025306, b: 1, a: 0.12156863}
+    - _EmissionColor: {r: 0.30725315, g: 0.6759569, b: 1.3041189, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
