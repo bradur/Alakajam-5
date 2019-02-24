@@ -89,6 +89,7 @@ public class FireSource : MonoBehaviour
         }
         if (isLevelStart) {
             GameObject player = Instantiate(gameConfig.PlayerPrefab);
+            player.GetComponentInChildren<TeleportCaster>().PreviousTeleportTarget = this;
             player.transform.position = TeleportPosition;
         }
     }
