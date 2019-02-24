@@ -37,6 +37,10 @@ public class GameConfig : ScriptableObject
     private GameObject gameEndPrefab;
     public GameObject GameEndPrefab { get { return gameEndPrefab; } }
 
+    [SerializeField]
+    private GameObject menuPrefab;
+    public GameObject MenuPrefab { get { return menuPrefab; } }
+
     [Header("Debugging")]
 
     public bool VisualDebug = false;

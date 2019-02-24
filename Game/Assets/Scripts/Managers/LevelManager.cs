@@ -13,15 +13,20 @@ public class LevelManager : MonoBehaviour
 
     private LevelConfig levelConfig;
 
+    private GameConfig gameConfig;
+
     void Awake()
     {
         main = this;
     }
 
 
+    GameObject menu;
+
     void Start()
     {
         levelConfig = ConfigManager.main.GetConfig("LevelConfig") as LevelConfig;
+        gameConfig = ConfigManager.main.GetConfig("GameConfig") as GameConfig;
         if (levelConfig.CurrentScene == levelConfig.FirstScene)
         {
             levelConfig.CurrentSceneNumber = 0;
@@ -57,6 +62,22 @@ public class LevelManager : MonoBehaviour
         }
         if (KeyManager.main.GetKeyDown(PlayerAction.Quit))
         {
+            if (menu == null)
+            {
+                menu = GameObject.FindGameObjectWithTag("Menu");
+            }
+            if (menu == null)
+            {
+                menu = Instantiate(gameConfig.MenuPrefab);
+            }
+            else
+            {
+                menu.SetActive(!menu.activeSelf);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Q) && menu != null && menu.activeSelf)
+        {
+            Debug.Log("QUIT!");
             Application.Quit();
         }
     }
