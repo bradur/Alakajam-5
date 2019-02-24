@@ -89,7 +89,7 @@ public class BurnCaster : MonoBehaviour
             endPoint,
             out hit,
             fireConfig.MaxDistance,
-            gameConfig.BurnableLayer
+            gameConfig.BurnableLayer | gameConfig.WallLayer
         );
     }
 
@@ -100,7 +100,7 @@ public class BurnCaster : MonoBehaviour
             endPoint,
             out hit,
             fireConfig.MaxDistance,
-            gameConfig.TorchLayer
+            gameConfig.TorchLayer | gameConfig.WallLayer
         );
     }
 
