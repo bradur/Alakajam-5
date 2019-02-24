@@ -29,9 +29,15 @@ public class AudioManager : MonoBehaviour
         audioConfig = ConfigManager.main.GetConfig("AudioConfig") as AudioConfig;
         sfxPlayer = Instantiate(audioConfig.SfxPlayerPrefab);
         sfxPlayer.transform.SetParent(transform);
-        musicPlayer = Instantiate(audioConfig.MusicPlayerPrefab);
-        musicPlayer.transform.SetParent(transform);
-        musicPlayer.clip = audioConfig.Music;
+        GameObject musicPlayerObject = GameObject.FindGameObjectWithTag("MusicPlayer");
+        if (musicPlayerObject == null) {
+            musicPlayer = Instantiate(audioConfig.MusicPlayerPrefab);
+            musicPlayer.gameObject.tag = "MusicPlayer";
+            musicPlayer.clip = audioConfig.Music;
+            DontDestroyOnLoad(musicPlayer);
+        } else {
+            musicPlayer = musicPlayerObject.GetComponent<AudioSource>();
+        }
         musicMuted = audioConfig.MusicMuted;
         sfxMuted = audioConfig.MusicMuted;
         if (musicPlayer.clip != null)
@@ -40,7 +46,7 @@ public class AudioManager : MonoBehaviour
             {
                 musicPlayer.Pause();
             }
-            else
+            else if (!musicPlayer.isPlaying)
             {
                 musicPlayer.Play();
             }
