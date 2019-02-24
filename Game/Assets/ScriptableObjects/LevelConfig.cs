@@ -22,7 +22,7 @@ public class LevelConfig : ScriptableObject
     private int currentSceneNumber;
     public int CurrentSceneNumber { get { return currentSceneNumber; } set { currentSceneNumber = value < NumberOfScenes && value >= 0 ? value : 0; } }
 
-    public bool CurrentSceneIsLast { get { return currentSceneNumber == NumberOfScenes - 1; } }
+    public bool CurrentSceneIsLast { get { return CurrentScene.name == "boss"; } }
 
     public bool LoadingNextScene = false;
 
