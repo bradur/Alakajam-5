@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/whichdoorisit.unity
     guid: de118a81408d4fd4ea62c260a6f8866b
   - enabled: 1
+    path: Assets/Scenes/roundabout.unity
+    guid: 5adff082fb1ff1542943f019e3d90f84
+  - enabled: 1
     path: Assets/Scenes/boss.unity
     guid: 16993183a46c5c0459e26442a30d1fee
   m_configObjects: {}
