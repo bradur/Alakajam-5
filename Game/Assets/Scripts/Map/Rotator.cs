@@ -9,10 +9,12 @@ public class Rotator : MonoBehaviour
     [SerializeField]
     private bool rotateClockwise = true;
 
+    private bool stopped = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        stopped = false;
     }
 
     // Update is called once per frame
@@ -21,8 +23,16 @@ public class Rotator : MonoBehaviour
         //float oldAngle = 0f;
         //Vector3 axis = Vector3.up;
         //transform.rotation.ToAngleAxis(out oldAngle, out axis);
-        float dir = rotateClockwise ? 1 : -1;
-        transform.Rotate(Vector3.up, rotationSpeed * dir * Time.deltaTime);
+        if (!stopped)
+        {
+            float dir = rotateClockwise ? 1 : -1;
+            transform.Rotate(Vector3.up, rotationSpeed * dir * Time.deltaTime);
+        }
         //Debug.Log(oldAngle);
+    }
+
+    public void Stop()
+    {
+        stopped = true;
     }
 }
