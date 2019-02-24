@@ -24,8 +24,8 @@ public class PlayerConfig : ScriptableObject
     public BezierCurve CurvePrefab { get { return curvePrefab; } }
 
     [SerializeField]
-    private SpriteRenderer teleportAreaPrefab;
-    public SpriteRenderer TeleportAreaPrefab { get { return teleportAreaPrefab; } }
+    private GameObject teleportAreaPrefab;
+    public GameObject TeleportAreaPrefab { get { return teleportAreaPrefab; } }
 
     [SerializeField]
     private float offsetAnimationSpeed = 2f;

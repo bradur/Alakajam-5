@@ -15,7 +15,7 @@ MonoBehaviour:
   drawCurve: 1
   curvePrefab: {fileID: 55240216579432347, guid: ca8a88a0d3413644893ee4efdd0e3297,
     type: 3}
-  teleportAreaPrefab: {fileID: 4771359027863978974, guid: 771943da12a1390478a902db64119896,
+  teleportAreaPrefab: {fileID: 7390893839312824538, guid: 6001d3f34a97e3240b102a177de91512,
     type: 3}
   offsetAnimationSpeed: 5
   curveHeight: 2
