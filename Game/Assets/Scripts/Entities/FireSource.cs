@@ -35,8 +35,17 @@ public class FireSource : MonoBehaviour
     public bool IsLit { get { return isLit; } }
 
     [SerializeField]
+    private bool interactable = true;
+    public bool Interactable { get { return interactable; } }
+
+    [SerializeField]
     private bool isLevelEnd = false;
     public bool IsLevelEnd { get { return isLevelEnd; } }
+
+    [SerializeField]
+    private bool isLevelStart = false;
+    public bool IsLevelStart { get { return isLevelStart; } }
+
 
     [SerializeField]
     private GameObject fire;
@@ -78,6 +87,10 @@ public class FireSource : MonoBehaviour
         {
             Extinguish();
         }
+        if (isLevelStart) {
+            GameObject player = Instantiate(gameConfig.PlayerPrefab);
+            player.transform.position = TeleportPosition;
+        }
     }
 
     void Update()
@@ -90,21 +103,27 @@ public class FireSource : MonoBehaviour
 
     public void Extinguish()
     {
-        isLit = false;
-        if (fire != null)
+        if (interactable)
         {
-            fire.SetActive(false);
+            isLit = false;
+            if (fire != null)
+            {
+                fire.SetActive(false);
+            }
+            light.SetActive(false);
         }
-        light.SetActive(false);
     }
 
     public void Light()
     {
-        isLit = true;
-        if (fire != null)
+        if (interactable)
         {
-            fire.SetActive(true);
+            isLit = true;
+            if (fire != null)
+            {
+                fire.SetActive(true);
+            }
+            light.SetActive(true);
         }
-        light.SetActive(true);
     }
 }

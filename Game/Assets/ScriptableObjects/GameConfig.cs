@@ -28,6 +28,10 @@ public class GameConfig : ScriptableObject
     private LayerMask burnableLayer;
     public LayerMask BurnableLayer { get { return burnableLayer; } }
 
+    [SerializeField]
+    private GameObject playerPrefab;
+    public GameObject PlayerPrefab { get { return playerPrefab; } }
+
 
     [Header("Debugging")]
 
