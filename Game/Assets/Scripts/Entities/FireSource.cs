@@ -35,6 +35,10 @@ public class FireSource : MonoBehaviour
     public bool IsLit { get { return isLit; } }
 
     [SerializeField]
+    private bool isLevelEnd = false;
+    public bool IsLevelEnd { get { return isLevelEnd; } }
+
+    [SerializeField]
     private GameObject fire;
 
     [SerializeField]
