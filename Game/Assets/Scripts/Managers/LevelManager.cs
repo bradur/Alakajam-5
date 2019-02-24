@@ -30,7 +30,8 @@ public class LevelManager : MonoBehaviour
         {
             levelConfig.CurrentSceneNumber = levelConfig.CurrentScene.buildIndex;
         }
-        if (levelConfig.CurrentSceneIsLast) {
+        if (levelConfig.CurrentSceneIsLast)
+        {
             AudioManager.main.FadeInBossMusic();
         }
     }
@@ -48,16 +49,20 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void Update() {
-        if (KeyManager.main.GetKeyDown(PlayerAction.Restart)) {
+    void Update()
+    {
+        if (KeyManager.main.GetKeyDown(PlayerAction.Restart))
+        {
             levelConfig.RestartingScene = true;
         }
-        if (KeyManager.main.GetKeyDown(PlayerAction.Quit)) {
+        if (KeyManager.main.GetKeyDown(PlayerAction.Quit))
+        {
             Application.Quit();
         }
     }
 
-    public void ReloadScene() {
+    public void ReloadScene()
+    {
         SceneManager.LoadScene(levelConfig.CurrentSceneNumber);
     }
 }

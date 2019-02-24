@@ -241,6 +241,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7693467340197553231}
     m_Modifications:
+    - target: {fileID: 3528542360664095004, guid: d6bc440a1e9d1f04a9f4b8bd85fe1428,
+        type: 3}
+      propertyPath: m_Name
+      value: burndoor
+      objectReference: {fileID: 0}
     - target: {fileID: 3528542360664095005, guid: d6bc440a1e9d1f04a9f4b8bd85fe1428,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -295,11 +300,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3528542360664095004, guid: d6bc440a1e9d1f04a9f4b8bd85fe1428,
-        type: 3}
-      propertyPath: m_Name
-      value: burndoor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6bc440a1e9d1f04a9f4b8bd85fe1428, type: 3}
@@ -395,6 +395,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: wood
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 77cde280632b8ca48affdc5d15e3c783, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 77cde280632b8ca48affdc5d15e3c783, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2e7cafc037f269442abe72069a3cd34f, type: 2}
+    - target: {fileID: 2300000, guid: 77cde280632b8ca48affdc5d15e3c783, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 77cde280632b8ca48affdc5d15e3c783, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f79aa738283ed7439044ed8b495f3dd, type: 2}
     - target: {fileID: 400000, guid: 77cde280632b8ca48affdc5d15e3c783, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -451,18 +467,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 77cde280632b8ca48affdc5d15e3c783, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2e7cafc037f269442abe72069a3cd34f, type: 2}
-    - target: {fileID: 2300000, guid: 77cde280632b8ca48affdc5d15e3c783, type: 3}
-      propertyPath: m_SortingOrder
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 77cde280632b8ca48affdc5d15e3c783, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1f79aa738283ed7439044ed8b495f3dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77cde280632b8ca48affdc5d15e3c783, type: 3}
 --- !u!4 &3755408820070097264 stripped
@@ -484,6 +488,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7693467340197553231}
     m_Modifications:
+    - target: {fileID: 3528542360664095004, guid: d6bc440a1e9d1f04a9f4b8bd85fe1428,
+        type: 3}
+      propertyPath: m_Name
+      value: burndoor
+      objectReference: {fileID: 0}
     - target: {fileID: 3528542360664095005, guid: d6bc440a1e9d1f04a9f4b8bd85fe1428,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -538,11 +547,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3528542360664095004, guid: d6bc440a1e9d1f04a9f4b8bd85fe1428,
-        type: 3}
-      propertyPath: m_Name
-      value: burndoor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6bc440a1e9d1f04a9f4b8bd85fe1428, type: 3}
