@@ -106,7 +106,7 @@ public class TeleportCaster : MonoBehaviour
             endPoint,
             out hit,
             playerConfig.MaxDistance,
-            gameConfig.GroundLayer | gameConfig.WallLayer
+            gameConfig.GroundLayer | gameConfig.WallLayer | gameConfig.BurnableLayer
         );
     }
 

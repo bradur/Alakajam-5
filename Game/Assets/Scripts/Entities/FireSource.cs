@@ -75,7 +75,6 @@ public class FireSource : MonoBehaviour
     void Start()
     {
         teleportPosition = GetComponentInChildren<TeleportPosition>();
-        Debug.Log(teleportPosition);
         fireConfig = ConfigManager.main.GetConfig("FireConfig") as FireConfig;
         gameConfig = ConfigManager.main.GetConfig("GameConfig") as GameConfig;
         debugRenderer = GetComponentInChildren<SpriteRenderer>();
