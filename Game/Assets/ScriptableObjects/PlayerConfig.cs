@@ -65,4 +65,7 @@ public class PlayerConfig : ScriptableObject
     private Transform teleportPointDebugPrefab;
     public Transform TeleportPointDebugPrefab { get { return teleportPointDebugPrefab; } }
 
+    [SerializeField]
+    private float teleportDuration;
+    public float TeleportDuration { get { return teleportDuration; } }
 }

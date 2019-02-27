@@ -20,6 +20,11 @@ public class TeleportCaster : MonoBehaviour
     private FireSource teleportTarget;
     private FireSource previousTeleportTarget;
 
+    private bool teleporting;
+    // Teleport lerp parameters
+    private float tpTimeStarted;
+    private Vector3 tpStartPosition;
+
     public FireSource PreviousTeleportTarget { set { previousTeleportTarget = value; } }
 
     void Start()
@@ -86,7 +91,23 @@ public class TeleportCaster : MonoBehaviour
 
     void Update()
     {
-        if (playerHandConfig.hasFire) {
+        if (teleporting)
+        {
+            Vector3 targetPosition = teleportTarget.TeleportPosition;
+            float p = (Time.time - tpTimeStarted) / playerConfig.TeleportDuration;
+            Vector3 lposition = Vector3.Lerp(tpStartPosition, targetPosition, p);
+            lposition.y = tpStartPosition.y;
+            transform.position = lposition;
+
+            if (p >= 0.95f)
+            {
+                Vector3 end = teleportTarget.TeleportPosition;
+                end.y = transform.position.y;
+                transform.position = end;
+                teleporting = false;
+            }
+        }
+        else if (playerHandConfig.hasFire) {
             if (teleportTarget != null) {
                 teleportArea.SetActive(false);
                 teleportTarget = null;
@@ -131,12 +152,9 @@ public class TeleportCaster : MonoBehaviour
     {
         if (teleportTarget != null)
         {
-            Vector3 position = transform.position;
-            Vector3 targetPosition = teleportTarget.TeleportPosition;
-            position.x = targetPosition.x;
-            position.z = targetPosition.z;
-            previousTeleportTarget = teleportTarget;
-            transform.position = position;
+            teleporting = true;
+            tpTimeStarted = Time.time;
+            tpStartPosition = transform.position;
             playerHandConfig.triggerJump = true;
             AudioManager.main.PlaySound(SoundType.Teleport);
             if (teleportTarget.IsLevelEnd)
