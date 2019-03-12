@@ -1045,6 +1045,7 @@ MonoBehaviour:
   textFadeTime: 2
   isGameEnd: 0
   destroyThis: {fileID: 0}
+  runtime: {fileID: 11400000, guid: 5c48fced47e902343ac268220c7a1c2d, type: 2}
 --- !u!114 &1900723614
 MonoBehaviour:
   m_ObjectHideFlags: 0

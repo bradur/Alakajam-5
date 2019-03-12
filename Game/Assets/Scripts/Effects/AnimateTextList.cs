@@ -37,6 +37,8 @@ public class AnimateTextList : MonoBehaviour
     private GameObject destroyThis;
     public GameObject DestroyThis { get { return destroyThis; } }
 
+    [SerializeField]
+    private Runtime runtime;
 
     private float currentAlpha;
 
@@ -46,6 +48,10 @@ public class AnimateTextList : MonoBehaviour
     {
         levelConfig = ConfigManager.main.GetConfig("LevelConfig") as LevelConfig;
         FadeInText();
+        if (isGameEnd)
+        {
+            runtime.Running = false;
+        }
     }
 
     public void FadeOutText()
@@ -76,6 +82,10 @@ public class AnimateTextList : MonoBehaviour
             {
                 levelConfig.CurrentSceneNumber = 1;
                 levelConfig.LoadingNextScene = true;
+                
+                runtime.Running = true;
+                runtime.Offset = Time.time;
+                runtime.LastValue = -1;
             }
         }
     }

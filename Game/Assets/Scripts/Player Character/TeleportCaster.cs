@@ -83,7 +83,7 @@ public class TeleportCaster : MonoBehaviour
 
     void ProcessInput()
     {
-        if (KeyManager.main.GetKeyDown(PlayerAction.Teleport))
+        if (!teleporting && KeyManager.main.GetKeyDown(PlayerAction.Teleport))
         {
             Teleport();
         }

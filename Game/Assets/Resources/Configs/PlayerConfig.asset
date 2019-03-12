@@ -27,4 +27,4 @@ MonoBehaviour:
   debugRayColor: {r: 1, g: 1, b: 1, a: 1}
   teleportPointDebugPrefab: {fileID: 7160734260878245270, guid: 20b90d388cee25245a723e4caa35da23,
     type: 3}
-  teleportDuration: 0.5
+  teleportDuration: 0.2

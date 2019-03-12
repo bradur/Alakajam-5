@@ -30,6 +30,8 @@ public class LevelManager : MonoBehaviour
         if (levelConfig.CurrentScene == levelConfig.FirstScene)
         {
             levelConfig.CurrentSceneNumber = 0;
+            Runtime time = RuntimeManager.main.GetRuntime();
+            time.Running = true;
         }
         else
         {

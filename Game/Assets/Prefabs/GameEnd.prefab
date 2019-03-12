@@ -135,6 +135,7 @@ MonoBehaviour:
   textFadeTime: 2
   isGameEnd: 1
   destroyThis: {fileID: 788782757352329915}
+  runtime: {fileID: 11400000, guid: 5c48fced47e902343ac268220c7a1c2d, type: 2}
 --- !u!1 &6092446507426874751
 GameObject:
   m_ObjectHideFlags: 0
